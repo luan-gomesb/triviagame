@@ -1,0 +1,217 @@
+:root {
+  --black-chocolate: #261c15;
+  --pale-spring-bud: #e4e6c3;
+  --red: #ff0000;
+  --light-grey: #777;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  background-color: var(--pale-spring-bud);
+  font-size: 16px;
+}
+
+main {
+  color: var(--black-chocolate);
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.btn {
+  border-radius: 0;
+  border: 1px solid var(--black-chocolate);
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.btn:hover {
+  background-color: olivedrab;
+  border: 1px solid olivedrab;
+  color: white;
+  font-weight: 600;
+}
+
+.btn:disabled {
+  background-color: var(--pale-spring-bud);
+  border: 1px solid var(--light-grey);
+  color: var(--light-grey);
+  cursor: initial;
+  font-weight: initial;
+}
+
+.section {
+  border: 2px solid var(--black-chocolate);
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  margin: 5px;
+  padding: 15px;
+}
+
+.form__input {
+  border-radius: 0;
+  border: 1px solid var(--black-chocolate);
+  flex: 3;
+  font-family: 'Courier New', Courier, monospace;
+  height: 15px;
+  padding: 10px;
+}
+
+.heading {
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.subheading {
+  align-self: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* || REGISTRATION FORM PAGE */
+.registration-form {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  padding: 20px;
+}
+
+.registration-form input {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+}
+
+.registration-form__submit-btn {
+  width: 100px;
+}
+
+/* || GAME INFO SECTION */
+.game-info {
+  flex: 1;
+}
+
+/* || TRIVIA SECTION */
+.trivia {
+  flex: 3;
+  justify-content: space-between;
+}
+
+.trivia__question {
+  margin-bottom: 10px;
+}
+
+.trivia__answers {
+  height: 65vh;
+  overflow-y: scroll;
+}
+
+.trivia__form {
+  align-self: center;
+  display: flex;
+  width: 100%;
+}
+
+.trivia__submit-btn {
+  flex: 1;
+}
+
+.trivia__question-playername {
+  display: inline-block;
+  font-weight: 900;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+.trivia__question-meta {
+  color: var(--light-grey);
+  font-size: 14px;
+}
+
+.trivia__correct-answer {
+  color: red;
+  font-weight: 600;
+  margin: 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* || CHAT SECTION */
+
+.chat {
+  flex: 2;
+}
+
+.chat__submit-btn {
+  flex: 1;
+}
+
+.chat__messages {
+  height: 73vh;
+  overflow-y: scroll;
+}
+
+.chat__form {
+  align-self: center;
+  display: flex;
+  width: 100%;
+}
+
+/* || MESSAGE TEMPLATE */
+
+.message {
+  margin-bottom: 16px;
+}
+
+.message__playername {
+  font-weight: 600;
+}
+
+.message__meta {
+  color: var(--light-grey);
+  font-size: 14px;
+}
+
+/* || MOBILE */
+@media screen and (max-width: 480px) {
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .registration-form input {
+    margin-bottom: 20px;
+  }
+  .registration-form__submit-btn {
+    align-self: center;
+    margin-top: 20px;
+  }
+
+  .section,
+  .trivia__answers,
+  .chat__messages {
+    height: auto;
+  }
+
+  .chat {
+    display: flex;
+  }
+
+  .chat .subheading {
+    order: 1;
+  }
+
+  .chat__messages {
+    order: 3;
+  }
+
+  .chat__form {
+    order: 2;
+  }
+}

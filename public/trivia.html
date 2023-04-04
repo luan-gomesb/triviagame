@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Player Programming Trivia Game</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="section game-info"></section>
+
+      <section class="section trivia">
+        <h2 class="subheading">trivia</h2>
+        <button class="btn trivia__question-btn">Get Question</button>
+        <button class="btn trivia__answer-btn" disabled>
+          Reveal Answer
+        </button>
+        <div class="trivia__question"></div>
+        <div class="trivia__answers"></div>
+        <form class="trivia__form">
+          <input
+            class="form__input trivia__answer"
+            name="answer"
+            placeholder="Your Answer"
+            autocomplete="off"
+            required
+          />
+          <input
+            class="btn trivia__submit-btn"
+            type="submit"
+            value="send"
+            disabled
+          />
+        </form>
+      </section>
+
+      <section class="section chat">
+        <h2 class="subheading">chat</h2>
+        <div class="chat__messages"></div>
+        <form class="chat__form">
+          <input
+            class="form__input chat__message"
+            name="message"
+            placeholder="Your Message"
+            autocomplete="off"
+            required
+          />
+          <input class="btn chat__submit-btn" type="submit" value="send" />
+        </form>
+      </section>
+    </main>
+
+    <script id="main-heading-template" type="text/x-handlebars-template">
+      <h1 class='heading'>
+        Welcome to the Programming Trivia Game, {{playerName}}!
+      </h1>
+    </script>
+
+    <script id="game-info-template" type="text/x-handlebars-template">
+      <h2 class='subheading'>
+        game info
+      </h2>
+      <h3>
+        Room: {{room}}
+      </h3>
+      <h3>
+        Players:
+      </h3>
+      <ul>
+        {{#each players}}
+          <li>
+            {{playerName}}
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script id="trivia-question-template" type="text/x-handlebars-template">
+      <div class='trivia__question'>
+        <p>
+          <span class='trivia__question-playername'>
+            {{playerName}} picked a question!
+          </span>
+          <span class='trivia__question-meta'>
+            {{createdAt}}
+          </span>
+        </p>
+        <p>
+          {{question}}
+        </p>
+        <ul>
+          {{#each answers}}
+            <li>
+              {{this}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </script>
+
+    <script id="trivia-answer-template" type="text/x-handlebars-template">
+      <p class='trivia__correct-answer'>
+        The correct answer is: {{text}}
+      </p>
+    </script>
+
+    <script id="message-template" type="text/x-handlebars-template">
+      <div class='message'>
+        <p>
+          <span class='message__playername'>
+            {{playerName}}
+          </span>
+          <span class='message__meta'>
+            {{createdAt}}
+          </span>
+        </p>
+        <p>
+          {{text}}
+        </p>
+      </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.js"></script>
+    <script src="/js/trivia.js"
+    ></script>
+  </body>
+</html>
